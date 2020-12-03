@@ -1,35 +1,16 @@
-const readline = require('readline')
+const rl=require("readline").createInterface(process.stdin,process.stdout);
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
-
-const PHASE = {
-  NORMAL: 0,
-  WILL_QUIT: 1
-}
-let phase = PHASE.NORMAL
-
-console.log('正の整数値：')
-rl.prompt()
-rl.on('line', input => {
-  switch (phase) {
-    case PHASE.NORMAL:
-      if (input <= 0){
-        phase = PHASE.NORMAL
-        console.log('正の整数値：')
-        rl.prompt()
-        return
-      }
-      while(input>=0){
-        console.log(input);
-        input--;
-      }
-      console.log("xの値は"+input+"になりました。");
-      rl.close()
-      break
+(async function(){
+  console.log('カウントダウンします。');
+  process.stdout.write('正の整数値：');
+  var number = await new Promise(res=>rl.once("line",res));
+  while(number<=0){
+    process.stdout.write('正の整数値：');
+    var number = await new Promise(res=>rl.once("line",res));
   }
-})
-rl.on('close', () => {
-})
+  for(var n=number; n>=0; n--){
+    console.log(n);
+  }
+  console.log("xの値は"+n+"になりました。");
+  process.exit();
+})();

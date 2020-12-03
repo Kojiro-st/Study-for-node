@@ -3,7 +3,9 @@ function randomIntMinMax(min, max){
   return rand
 }
 
-var number = randomIntMinMax(0, 2)
+var number = randomIntMinMax(0, 2);
+
+process.stdout.write('コンピュータが生成した手：');
 
 if (number == 0){
   console.log("グー");

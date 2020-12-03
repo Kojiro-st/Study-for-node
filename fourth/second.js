@@ -18,12 +18,12 @@ rl.on('line', input => {
     case PHASE.NORMAL:
       if (input < 100){
         phase = PHASE.NORMAL
-        console.log('3桁の正の整数値：')
+        process.stdout.write('3桁の正の整数値：')
         rl.prompt()
         return
       }else if (input>999){
         phase = PHASE.NORMAL
-        console.log('3桁の正の整数値：')
+        process.stdout.write('3桁の正の整数値：')
         rl.prompt()
         return
       }

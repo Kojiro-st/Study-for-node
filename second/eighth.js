@@ -21,14 +21,14 @@
 const rl=require("readline").createInterface(process.stdin,process.stdout);
 
 (async function(){
-  console.log('xの値：');
+  process.stdout.write('xの値：');
   var min=await new Promise(res=>rl.once("line",res));
-  console.log('yの値：');
+  process.stdout.write('yの値：');
   var max=await new Promise(res=>rl.once("line",res));
   var num = parseFloat(max);
   var num2 = parseFloat(min);
-  var sum = parseFloat(num+num2);
-  var sum2 = parseFloat(sum/2);
+  var sum = num+num2;
+  var sum2 = sum/2;
   console.log("合計は"+sum+"です。");
   console.log("平均は" +sum2+"です。");
   process.exit();

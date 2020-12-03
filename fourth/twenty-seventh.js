@@ -13,7 +13,7 @@ const rl=require("readline").createInterface(process.stdin,process.stdout);
     FakeSum +=NumberInteger;
     if(FakeSum >= 1000){
       console.log("合計が1,000を超えました。最後の数値は無視します。");
-      break
+      break;
     }
     TrueSum +=NumberInteger;
   }

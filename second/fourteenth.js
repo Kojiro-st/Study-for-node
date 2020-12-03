@@ -16,9 +16,9 @@
 const rl=require("readline").createInterface(process.stdin,process.stdout);
 
 (async function(){
-  console.log('姓：');
+  process.stdout.write('姓：');
   var FamilyName=await new Promise(res=>rl.once("line",res));
-  console.log('名');
+  process.stdout.write('名');
   var FirstName=await new Promise(res=>rl.once("line",res));
   console.log("こんにちは"+FamilyName+FirstName+"さん。");
   process.exit();

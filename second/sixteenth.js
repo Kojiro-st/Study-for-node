@@ -1,5 +1,8 @@
-let FirstName = "バナナ";
-let SecondName = "ばなな";
+let FirstName;
+let SecondName;
+
+FirstName = "バナナ";
+SecondName = "ばなな";
 
 console.log("文字列s1は"+FirstName+"です。");
 console.log("文字列s2は"+SecondName+"です。");

@@ -25,8 +25,8 @@ const rl=require("readline").createInterface(process.stdin,process.stdout);
     a=b;
     b=t;
   }
-  console.log("変数a："+a);
-  console.log("変数b："+b);
-  console.log("変数c："+c);
+  console.log("変数aは"+a+"です。");
+  console.log("変数bは"+b+"です。");
+  console.log("変数cは"+c+"です。");
   process.exit();
 })();

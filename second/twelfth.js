@@ -1,12 +1,12 @@
-const readline = require('readline').createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
 function randomIntMinMax(min, max){
   var rand = Math.floor(Math.random() * (max + 1 - min)) + min;
   return rand
 }
+
+const readline = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
 readline.question('整数値： ', (answer) => {
   var answernumber = parseFloat(answer);

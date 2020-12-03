@@ -1,34 +1,11 @@
-const readline = require('readline')
+const rl=require("readline").createInterface(process.stdin,process.stdout);
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
-
-const PHASE = {
-  NORMAL: 0,
-  WILL_QUIT: 1
-}
-let phase = PHASE.NORMAL
-
-console.log('何個*を表示しますか：')
-rl.prompt()
-rl.on('line', input => {
-  switch (phase) {
-    case PHASE.NORMAL:
-      if (input < 1){
-        phase = PHASE.NORMAL
-        console.log('何個*を表示しますか：')
-        rl.prompt()
-        return
-      }
-      while(input>0){
-        console.log("*");
-        --input;
-      }
-      rl.close()
-      break
+(async function(){
+  process.stdout.write('何個*を表示しますか：');
+  var number = await new Promise(res=>rl.once("line",res));
+  for(var n=number; n>0; n--){
+    process.stdout.write('*');
   }
-})
-rl.on('close', () => {
-})
+  console.log();
+  process.exit();
+})();

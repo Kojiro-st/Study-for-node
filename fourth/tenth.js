@@ -1,25 +1,18 @@
-const readline = require('readline')
+const rl=require("readline").createInterface(process.stdin,process.stdout);
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
-
-console.log('正の整数値：')
-rl.prompt()
-rl.on('line', input => {
-  if(input==1){
-    console.log("1から"+input+"までの積は"+input+"です。");
+(async function(){
+  process.stdout.write("正の整数値：");
+  var number = await new Promise(res=>rl.once("line",res));
+  if(number==1){
+    console.log("1から"+number+"までの積は"+number+"です。");
     rl.close()
   }
   var n =1;
   var times=1;
-  while(input>=n){
+  while(number>=n){
     times*=n;
     n++;
   }
-  console.log("1から"+input+"までの積は"+times+"です。");
-  rl.close()
-})
-rl.on('close', () => {
-})
+  console.log("1から"+number+"までの積は"+times+"です。");
+  process.exit();
+})();

@@ -20,9 +20,9 @@ const rl=require("readline").createInterface(process.stdin,process.stdout);
 
 (async function(){
   console.log('三角形の面積を求めます。')
-  console.log('底辺：');
+  process.stdout.write('底辺：');
   var BottomLength=await new Promise(res=>rl.once("line",res));
-  console.log('高さ：');
+  process.stdout.write('高さ：');
   var Hight=await new Promise(res=>rl.once("line",res));
   var sum = parseFloat(BottomLength*Hight);
   var area = parseFloat(sum/2);

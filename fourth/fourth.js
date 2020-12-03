@@ -1,9 +1,9 @@
 const rl=require("readline").createInterface(process.stdin,process.stdout);
 
 (async function(){
-  console.log('整数A：');
+  process.stdout.write('整数A：');
   var a=await new Promise(res=>rl.once("line",res));
-  console.log('整数B：');
+  process.stdout.write('整数B：');
   var b=await new Promise(res=>rl.once("line",res));
   var t;
   if (a>b){
@@ -12,8 +12,9 @@ const rl=require("readline").createInterface(process.stdin,process.stdout);
     b=t;
   }
   while(a<=b){
-    console.log(a);
+    process.stdout.write(a+' ');
     a++;
   }
+  // console.log();
   process.exit();
 })();

@@ -1,20 +1,14 @@
-const readline = require('readline')
+const rl=require("readline").createInterface(process.stdin,process.stdout);
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
-
-var digit=0;
-console.log('正の整数値の桁数を求めます。')
-rl.prompt()
-rl.on('line', input => {
-  while(input>=1){
+(async function(){
+  console.log('正の整数値の桁数を求めます。')
+  process.stdout.write("正の整数値：");
+  var digit=0;
+  var number = await new Promise(res=>rl.once("line",res));
+  while(number>=1){
     ++digit;
-    input = input/10;
+    number = number/10;
   }
-  console.log(digit);
-  rl.close()
-})
-rl.on('close', () => {
-})
+  console.log("その数は"+digit+"桁です。");
+  process.exit();
+})();

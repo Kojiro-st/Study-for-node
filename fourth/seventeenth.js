@@ -1,32 +1,24 @@
-const readline = require('readline')
+const rl=require("readline").createInterface(process.stdin,process.stdout);
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
-
-console.log('何個*を表示しますか：')
-rl.prompt()
-rl.on('line', input => {
-  var remainder = input%5;
-  var division = input /5;
+(async function(){
+  process.stdout.write('何個*を表示しますか：');
+  var number=await new Promise(res=>rl.once("line",res));
+  var remainder = number%5;
+  var division = number /5;
   if(remainder==0){
     for(var i=1; i<=division; i++){
       console.log('*****');
     }
-    rl.close()
-    return
+  }else{
+    var dif = number - remainder;
+    var DifDivision = dif/5
+    for(var i=1; i<=DifDivision; i++){
+      console.log('*****');
+    }
+    for(var i=1; i<=remainder; i++){
+      process.stdout.write("*");
+    }
+    console.log('');
   }
-  var dif = input - remainder;
-  var DifDivision = dif/5
-  for(var i=1; i<=DifDivision; i++){
-    console.log('*****');
-  }
-  for(var i=1; i<=remainder; i++){
-    process.stdout.write("*");
-  }
-  console.log('');
-  rl.close()
-})
-rl.on('close', () => {
-})
+  process.exit();
+})();

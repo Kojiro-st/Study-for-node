@@ -1,21 +1,13 @@
-const readline = require('readline')
+const rl=require("readline").createInterface(process.stdin,process.stdout);
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
-
-console.log('正の整数値：')
-rl.prompt()
-rl.on('line', input => {
-  var n =1;
-  var times=1;
-  while(n<=input){
-    times += n;
-    n++;
+(async function(){
+  console.log('1からnまでの和を求めます。');
+  process.stdout.write('nの値：');
+  var total=0;
+  var number = await new Promise(res=>rl.once("line",res));
+  for(var n=1; n<=number; n++){
+    total += n;
   }
-  console.log("1から"+input+"までの和は"+times+"です。");
-  rl.close()
-})
-rl.on('close', () => {
-})
+  console.log("1から"+number+"までの和は"+total+"です。");
+  process.exit();
+})();

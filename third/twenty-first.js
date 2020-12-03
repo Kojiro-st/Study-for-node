@@ -1,5 +1,5 @@
 var month = 0;
-console.log("何月ですか？："+month)
+process.stdout.write("何月ですか？："+month)
 
 switch (month){
   case 3:

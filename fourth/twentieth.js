@@ -1,49 +1,24 @@
-const readline = require('readline')
+const rl=require("readline").createInterface(process.stdin,process.stdout);
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
+(async function(){
+  console.log('季節を求めてます。');
+  process.stdout.write('何月ですか？：');
+  var month = await new Promise(res=>rl.once("line",res));
 
-const PHASE = {
-  NORMAL: 0,
-  WILL_QUIT: 1
-}
-let phase = PHASE.NORMAL
+  do{
+    if (month>=3 && month<=5){
+      console.log("それは春です");
+    }else if (month>=6 && month<=8){
+      console.log("それは夏です");
+    }else if (month>=9 && month<=11){
+      console.log("それは秋です");
+    }else if (month==12 || month==1 || month ==2){
+      console.log("それは冬です");
+    }
 
-console.log('季節を求めてます。\n何月ですか？：');
-rl.prompt()
-rl.on('line', month => {
-  switch (phase) {
-    case PHASE.NORMAL:
-      if (month>=3 && month<=5){
-        console.log("それは春です");
-      }else if (month>=6 && month<=8){
-        console.log("それは夏です");
-      }else if (month>=9 && month<=11){
-        console.log("それは秋です");
-      }else if (month==12 || month==1 || month ==2){
-        console.log("それは冬です");
-      }else {
-        console.log('何月ですか：');
-        phase = PHASE.NORMAL
-        break
-      }
-      console.log('もう一度？ 1…Yes/0…No: ');
-      rl.prompt()
-      phase = PHASE.WILL_QUIT
-      break
+    process.stdout.write('もう一度？ 1…Yes/0…No: ');
+    var m = await new Promise(res=>rl.once("line",res));
+  }while(m==1)
 
-    case PHASE.WILL_QUIT:
-      if (month == 0) {
-        rl.close()
-        return
-      }
-      phase = PHASE.NORMAL
-      console.log('何月ですか：');
-      rl.prompt()
-      break
-  }
-})
-rl.on('close', () => {
-})
+  process.exit();
+})();

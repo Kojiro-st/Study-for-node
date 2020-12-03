@@ -19,7 +19,7 @@ const rl=require("readline").createInterface(process.stdin,process.stdout);
 
 (async function(){
   console.log('球の表面積と体積を求めます。')
-  console.log('半径：');
+  process.stdout.write('半径：');
   var π = 3.14;
   var radius =await new Promise(res=>rl.once("line",res));
   var area = 4*π*radius*radius;

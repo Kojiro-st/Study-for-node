@@ -56,7 +56,7 @@ const PHASE = {
 }
 let phase = PHASE.NORMAL
 
-console.log('整数値：')
+process.stdout.write('整数値：')
 rl.prompt()
 rl.on('line', input => {
   switch (phase) {
@@ -68,7 +68,7 @@ rl.on('line', input => {
       }else {
         console.log("その値は0です");
       }
-      console.log('もう一度？ 1…Yes/0…No: ');
+      process.stdout.write('もう一度？ 1…Yes/0…No: ');
       rl.prompt()
       phase = PHASE.WILL_QUIT
       break
@@ -79,7 +79,7 @@ rl.on('line', input => {
         return
       }
       phase = PHASE.NORMAL
-      console.log('整数値：')
+      process.stdout.write('整数値：')
       rl.prompt()
       break
   }

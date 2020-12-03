@@ -3,7 +3,7 @@ const readline = require('readline').createInterface({
   output: process.stdout
 });
 
-readline.question('住所： ', (integer) => {
-  console.log("あなたの住所は"+integer+"ですね。");
+readline.question('住所： ', (address) => {
+  console.log("あなたの住所は"+address+"ですね。");
   readline.close();
 });

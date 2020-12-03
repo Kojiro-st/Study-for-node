@@ -1,6 +1,11 @@
-let x = 82.873518991;
-let y = 17.057487292;
+let x;
+let y;
+
+x = 82.873518991;
+y = 17.057487292;
 let z = x+y;
 
+console.log("xの値は"+x+"です。");
+console.log("yの値は"+y+"です。");
 console.log("合計は"+z+"です。");
-console.log("合計は"+z/2+"です。");
+console.log("平均は"+z/2+"です。");

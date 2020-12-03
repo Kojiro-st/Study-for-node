@@ -1,39 +1,22 @@
-const readline = require('readline')
+const rl=require("readline").createInterface(process.stdin,process.stdout);
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
-
-const PHASE = {
-  NORMAL: 0,
-  WILL_QUIT: 1
-}
-let phase = PHASE.NORMAL
-
-console.log('何個を表示しますか：')
-rl.prompt()
-rl.on('line', input => {
-  switch (phase) {
-    case PHASE.NORMAL:
-      if (input % 2== 0){
-        var theone = input/2;
-        while(theone>0){
-          console.log("*+");
-          --theone;
-        }
-        rl.close()
-        return
-      }
-      var thetwo = (input - 1)/2;
-      while(thetwo>0){
-        console.log("*+");
-        --thetwo;
-      }
-      console.log("*");
-      rl.close()
-      break
+(async function(){
+  process.stdout.write('何個*を表示しますか：');
+  var number = await new Promise(res=>rl.once("line",res));
+  if (number % 2== 0){
+    var theone = number/2;
+    while(theone>0){
+      process.stdout.write("*+");
+      --theone;
+    }
+  }else{
+    var thetwo = (number - 1)/2;
+    while(thetwo>0){
+      process.stdout.write("*+");
+      --thetwo;
+    }
+    process.stdout.write("*");
   }
-})
-rl.on('close', () => {
-})
+  console.log();
+  process.exit();
+})();

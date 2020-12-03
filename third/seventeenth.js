@@ -1,11 +1,11 @@
 const rl=require("readline").createInterface(process.stdin,process.stdout);
 
 (async function(){
-  console.log('整数a：');
+  process.stdout.write('整数a：');
   var a=await new Promise(res=>rl.once("line",res));
-  console.log('整数b：');
+  process.stdout.write('整数b：');
   var b=await new Promise(res=>rl.once("line",res));
-  console.log('整数c：');
+  process.stdout.write('整数c：');
   var c=await new Promise(res=>rl.once("line",res));
   var min;
   var max;
