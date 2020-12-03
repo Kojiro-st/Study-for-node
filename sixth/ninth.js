@@ -1,3 +1,4 @@
+// number型で解いた。
 const rl=require("readline").createInterface(process.stdin,process.stdout);
 
 process.stdout.write('要素数：');

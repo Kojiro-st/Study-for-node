@@ -16,19 +16,22 @@ process.stdout.write('要素数：');
   }
   var elements = [];
   var i = 0;
+  grid_loop:
   for(var n=0;n<number;n++){
+    elements[n]=randomIntMinMax(1,10);
     while(i<n){
       elements[n]=randomIntMinMax(1,10);
-      elements.push(elements[n]);
       for(;i<n;i++){
         if(elements[n] == elements[i]){
-          break
+          break grid_loop;
         }
       }
     }
     process.stdout.write("a["+(n)+"]=");
+    elements.push(elements[n]);
     console.log(elements[n]);
   }
+  console.log(elements);
   process.exit();
 })();
 

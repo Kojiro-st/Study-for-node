@@ -33,5 +33,5 @@ class Day {
     return day.year == Day.getYear && day.month == Day.getMonth && day.day == Day.getDay;
   }
 
-  static ()
+  // static ()
 }
