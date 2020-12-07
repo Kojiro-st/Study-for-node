@@ -4,13 +4,13 @@ class Coodinate{
     this.Yposition = Yposition;
   }
 
-  getX() {
-    return this.Xposition;
-  }
+  // getX() {
+  //   return this.Xposition;
+  // }
 
-  getY() {
-    return this.Yposition;
-  }
+  // getY() {
+  //   return this.Yposition;
+  // }
 
   static GetXandYposition(location) {
     var NewX = location.getX();

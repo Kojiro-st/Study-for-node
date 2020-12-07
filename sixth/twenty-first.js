@@ -1,13 +1,13 @@
 const rl=require("readline").createInterface(process.stdin,process.stdout);
 
 (async function(){
-  // var NumberPeople = [];
   var scores = [];
   var EachScores=[];
   var TotalScore = [];
   var AverageScore = [];
   var ClassScore = 0;
   let TotalPart;
+
   process.stdout.write('クラス数：');
   var ClassNumber = await new Promise(res=>rl.once("line",res));
   console.log("各要素の値を入力せよ。");
@@ -27,8 +27,6 @@ const rl=require("readline").createInterface(process.stdin,process.stdout);
     scores.push(EachScores);
     EachScores=[];
   }
-  console.log(TotalScore);
-  console.log(AverageScore);
 
   console.log(' '+'組 |'+'合計 '+'平均');
   console.log('----+---------');
@@ -36,5 +34,6 @@ const rl=require("readline").createInterface(process.stdin,process.stdout);
     TotalPart = TotalScore[n];
     console.log(' '+(n+1)+'組 |'+TotalPart+'   '+AverageScore[n]);
   }
+
   process.exit();
 })();

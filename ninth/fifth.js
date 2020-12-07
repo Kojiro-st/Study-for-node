@@ -1,8 +1,9 @@
 class Account{
-  constructor(name, no, balance) {
+  constructor(name, no, balance, day) {
     this.name = toString(name);
     this.no = no;
     this.balance = balance;
+    this.day = day;
   }
 
   // 口座名義を調べる
@@ -30,5 +31,10 @@ class Account{
   static Withdraw(balance, k){
     balance -=k;
     return balance;
+  }
+
+  // 口座開設日
+  static MakeAccountDay(day){
+    return day;
   }
 }

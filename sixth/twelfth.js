@@ -1,5 +1,3 @@
-const { number } = require("yargs");
-
 const rl=require("readline").createInterface(process.stdin,process.stdout);
 
 function randomIntMinMax(min, max){
@@ -19,19 +17,18 @@ process.stdout.write('要素数：');
   grid_loop:
   for(var n=0;n<number;n++){
     elements[n]=randomIntMinMax(1,10);
-    while(i<n){
-      elements[n]=randomIntMinMax(1,10);
+    // while(i<n){
+    //   elements[n]=randomIntMinMax(1,10);
       for(;i<n;i++){
         if(elements[n] == elements[i]){
           break grid_loop;
         }
       }
-    }
+    // }
     process.stdout.write("a["+(n)+"]=");
     elements.push(elements[n]);
     console.log(elements[n]);
   }
-  console.log(elements);
   process.exit();
 })();
 

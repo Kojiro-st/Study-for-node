@@ -1,9 +1,10 @@
 class Human {
+  // count=0;
   constructor(name, height, weight, id) {
     this.name = name;
     this.height = height;
     this.weight = weight;
-    this.id = 1;
+    this.id ++;
   }
 
   getName() {
@@ -15,12 +16,17 @@ class Human {
   getWeight() {
     return this.weight;
   }
-  getId(){
-    return this.id;
-  }
+  // // getId(){
+  // //   return this.id;
+  // // }
 
-  static MakeDifference(name, height, weight){
-
+  static MakeDifference(Human){
+    var count = 0;
+    var id =+ count;
+    var NewName = Human.getName();
+    var NewHeight = Human.getHeight();
+    var NewWeight = Human.getWeight();
+    return NewName, NewHeight, NewWeight, id;
   }
 }
 
@@ -35,3 +41,4 @@ console.log("番号："+suzuki.getId());
 console.log("名前："+takada.getName());
 console.log("身長："+takada.getHeight());
 console.log("体重："+takada.getWeight());
+console.log("番号："+takada.getId());

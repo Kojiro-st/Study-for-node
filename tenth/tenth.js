@@ -7,28 +7,28 @@ class Account{
   }
 
   // 口座名義を調べる
-  static AccountName(name){
+  AccountName(name){
     return name;
   }
 
   // 口座番号を調べる
-  static AccountNo(no){
+  AccountNo(no){
     return no;
   }
 
   // 預金残高を調べる
-  static AccountBalance(balance){
+  AccountBalance(balance){
     return balance;
   }
 
   // k円預ける
-  static Deposit(balance, k){
+  Deposit(balance, k){
     balance +=k;
     return balance;
   }
 
   // k円下ろす
-  static Withdraw(balance, k){
+  Withdraw(balance, k){
     balance -=k;
     return balance;
   }

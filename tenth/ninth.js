@@ -15,8 +15,15 @@ class Position{
   static GetXandYposition(location, date) {
     var NewX = location.getX();
     var NewY = location.getY();
-    if()
+    if(NewX == null){
+      NewX = 0;
+      return NewX,NewY;
+    }else if(NewY == null){
+    NewY = 0;
     return NewX,NewY;
+    }else{
+      return NewX,NewY;
+    }
   }
 
 

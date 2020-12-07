@@ -12,15 +12,16 @@ class Car{
     this.FuelEconomy = FuelEconomy;
   }
 
-  static GetXposition(Xposition) {
-    return Xposition;
-  }
-  static GetYposition(Yposition) {
-    return Yposition;
-  }
-  static SetFuelEconomy(FuelEconomy) {
-    return FuelEconomy;
-  }
+  // static GetXposition(Xposition) {
+  //   return Xposition;
+  // }
+  // static GetYposition(Yposition) {
+  //   return Yposition;
+  // }
+  // static SetFuelEconomy(FuelEconomy) {
+  //   return FuelEconomy;
+  // }
+
   static ShowTheSpec(name, number, width, height, length, Xposition, Yposition, capacity, energy, FuelEconomy) {
     console.log("名前："+name);
     console.log("ナンバー："+number);
@@ -30,6 +31,7 @@ class Car{
     console.log("タンク："+capacity+"リットル");
     console.log("燃費："+FuelEconomy+"km/リットル");
   }
+
   static Distance(Xposition, Yposition, capacity, FuelEconomy) {
     var distance = capacity/FuelEconomy;
     if(distance>energy){
@@ -40,6 +42,7 @@ class Car{
     return Math.hypot(dx, dy);
     }
   }
+
   static Refuel(df){
     if(df>0){
       energy += df;
@@ -48,4 +51,5 @@ class Car{
       }
     }
   }
+
 }

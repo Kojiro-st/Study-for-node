@@ -5,87 +5,58 @@ const rl=require("readline").createInterface(process.stdin,process.stdout);
   var ATotal=[];
   var BEach=[];
   var BTotal=[];
-  var addEach=[];
-  var addTotal=[];
   var add=0;
+
   console.log('行列aの要素の値を入力せよ。');
   for(var n=0;n<4;n++){
     for(var i=0;i<3;i++){
       process.stdout.write('a['+n+']['+i+']:');
       var ANumber= await new Promise(res=>rl.once("line",res));
-      AEach.push(ANumber);
+      var NumberANumber = parseFloat(ANumber);
+      AEach.push(NumberANumber);
     }
     ATotal.push(AEach);
     AEach=[];
   }
-  console.log(ATotal);
+  // 配列は取ることができている
+
   console.log('行列bの要素の値を入力せよ。');
-  for(var n=0;n<3;n++){
-    for(var i=0;i<4;i++){
+  for(var n=0; n<3; n++){
+    for(var i=0; i<4; i++){
       process.stdout.write('b['+n+']['+i+']:');
       var BNumber= await new Promise(res=>rl.once("line",res));
-      BEach.push(BNumber);
+      var NumberBNumber = parseFloat(BNumber);
+      BEach.push(NumberBNumber);
     }
     BTotal.push(BEach);
     BEach=[];
   }
-  console.log(BTotal);
+  // 配列は取ることができている
+
   console.log('行列aとbの積');
-  for(var n=0;n<4;n++){
-    for(var i=0;i<4;i++){
-      add+=ATotal[n][i]*BTotal[n][i];
-      addEach.push(add);
-      process.stdout.write(addEach);
-      console.log(addEach[i]);
+  for(var n=0; n<4; n++){
+    var EachATotal = ATotal[n];
+    var EachBTotal = BTotal[n];
+    for(var i=0; i<4; i++){
+      var EachEachATotal = EachATotal[i];
+      var EachEachBTotal = EachBTotal[i];
+      // console.log(EachATotal[i]);
+      // process.stdout.write(EachATotal[i]);
+      // ここまでは値が取れているし、配列も取れている。ここからなんだよな...
+      if(n=3){
+        // console.log(EachEachATotal);
+        process.stdout.write(EachEachATotal);
+      }else if(i=3){
+        // console.log(EachEachBTotal);
+        process.stdout.write(EachEachBTotal);
+      }
+      // console.log(EachEachATotal*EachEachBTotal);
+      process.stdout.write(EachEachATotal*EachEachBTotal);
     }
-    addTotal.push(addEach);
-    addEach=[];
-    console.log("");
+    // EachATotal=[];
+    // EachBTotal=[];
+    // console.log("");
   }
+  // console.log(EachATotal);
   process.exit();
 })();
-
-
-// const rl=require("readline").createInterface(process.stdin,process.stdout);
-
-// (async function(){
-//   var add;
-//   var AEach=[];
-//   var ATotal=[];
-//   var BEach=[];
-//   var BTotal=[];
-//   var ABTotal=[];
-//   console.log('行列aの要素の値を入力せよ。');
-//   for(var n=0;n<4;n++){
-//     for(var i=0;i<3;i++){
-//       process.stdout.write('a['+n+']['+i+']:');
-//       var ANumber= await new Promise(res=>rl.once("line",res));
-//       AEach.push(ANumber);
-//     }
-//     ATotal.push(AEach);
-//     AEach=[];
-//   }
-  
-//   console.log(ATotal);
-//   console.log('行列bの要素の値を入力せよ。');
-//   for(var n=0;n<3;n++){
-//     for(var i=0;i<4;i++){
-//       process.stdout.write('b['+n+']['+i+']:');
-//       var BNumber= await new Promise(res=>rl.once("line",res));
-//       BTotal.push(BNumber);
-//       BEach.push(BNumber);
-//     }
-//     BTotal.push(BEach);
-//     BEach=[];
-//   }
-//   console.log('行列aとbの積');
-//   for(var n=0;n<4;n++){
-//     for(var i=0;i<4;i++){
-//       add+=ATotal[n][i]*BTotal[n][i];
-//       ABTotal.push(add);
-//       process.stdout.write(ABTotal);
-//     }
-//     console.log('');
-//   }
-//   process.exit();
-// })();
