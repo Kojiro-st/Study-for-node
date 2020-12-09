@@ -25,14 +25,16 @@ class Car{
     return DayPurchasing;
   }
 
-  Move(dx, dy){
+  static Move(dx, dy, fuel){
     var distance = dx*dx +dy*dy;
     if(distance>fuel){
       return false;
     }else{
       fuel=-distance;
-      x=+dx;
-      y=+dy;
+      var x = x+dx;
+      var y= y+dy;
+      console.log(true);
+      
       return true;
     }
   }
@@ -44,11 +46,13 @@ class ExCar extends Car{
     x = y = 0;
   }
 
-  CalculateTotalDistance(dx, dy){
+  static CalculateTotalDistance(dx, dy){
     var TotalDistance = dx*dx + dy*dy;
     return TotalDistance;
   }
 }
 
 // 算出する
-console.log(ExCar.CalculateTotalDistance(10, 10));
+
+Car.Move(10, 10, 500);
+Car.CalculateTotalDistance(10, 10);

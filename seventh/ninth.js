@@ -30,7 +30,7 @@ const rl=require("readline").createInterface(process.stdin,process.stdout);
     }
     var StringNumber = toString(number);
 
-    console.log("逆から読むと"+randomIntMinMax(StringNumber)+"です。")
+    console.log("逆から読むと"+reverse(StringNumber)+"です。")
     process.stdout.write('もう一度？ 1...Yes/0...No：');
     var OneOrZero =await new Promise(res=>rl.once("line",res));
     if(OneOrZero == 0){

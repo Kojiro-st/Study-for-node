@@ -26,7 +26,7 @@ class Car{
     return this.DayPurchasing;
   }
 
-  static Move(dx, dy){
+  Move(dx, dy){
     var distance = dx*dx +dy*dy;
     if(distance>fuel){
       return false;
@@ -41,35 +41,35 @@ class Car{
 
 class ExCar extends Car{
   constructor(TotalDistance, fuel, DayPurchasing, name, width, height, length, x, y){
-    super()
+    super(name, width, height, length, fuel, DayPurchasing, x, y)
     this.TotalDistance = TotalDistance;
-    this.fuel = fuel;
-    this.DayPurchasing = DayPurchasing;
-    this.name = name;
-    this.width = width;
-    this.height = height;
-    this.length = length;
-    this.fuel = fuel;
-    this.x = x;
-    this.y = y;
   }
 
-  static CalculateTotalDistance(dx, dy){
+  CalculateTotalDistance(dx, dy){
     var TotalDistance = dx*dx + dy*dy;
     return TotalDistance;
   }
 
-  static ShowLocationFuelDayPurchasing(TotalDistance, fuel, DayPurchasing){
+  ShowLocationFuelDayPurchasing(TotalDistance, fuel, DayPurchasing){
     var NewX = TotalDistance.getX();
     var NewY = TotalDistance.getY();
     var LeftFuel = fuel.getFuel();
     var TheDayPurchasing = DayPurchasing.getDayPurchasing();
     return NewX, NewY, LeftFuel, TheDayPurchasing;
   }
+
+  putSpec(name, width, height, length, TotalDistance){
+    console.log("名前："+name);
+    console.log("車幅："+width);
+    console.log("車高："+height);
+    console.log("車長："+length);
+    console.log("総走行距離："+TotalDistance);
+    return;
+  }
 }
 
-var instance = new ExCar(100, 100, 20201010, "インスタンス", 100, 100, 100, 100, 0.00, 0.00);
+var Excar = new ExCar(0.00 , 0, 20201010, "w221", 1845, 1490, 5250, );
 
-console.log("現在位置("+instance.getX()+instance.getY()+")");
-console.log("残り燃料("+instance.getFuel()+")");
-console.log("購入日("+instance.getDayPurchasing()+")");
+console.log(Excar.putSpec("w221", 1845, 1490, 5205, 0.00));
+
+// このままで合っている？

@@ -24,11 +24,11 @@
 // インスタンスを作成する必要があるということ？今回行った初期化処理がカリキュラムの意図外？
 
 class Human {
-  constructor(name, height, width) {
-    this.name = name;
-    this.height = height;
-    this.width = width;
-  }
+  // constructor(name, height, width) {
+  //   this.name = name;
+  //   this.height = height;
+  //   this.width = width;
+  // }
   getName() {
     return this.name;
   }
