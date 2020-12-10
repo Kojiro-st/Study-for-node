@@ -5,24 +5,24 @@ class Car{
     this.height = height;
     this.width = width;
     this.length = length;
-    this.xPosition = xPosition;
-    this.yPosition = yPosition;
+    this.xPosition = 0;
+    this.yPosition = 0;
     this.capacity = capacity;
     this.energy = energy;
     this.fuelEconomy = fuelEconomy;
   }
 
-  static GetXposition(xPosition) {
+  getXposition(xPosition) {
     return xPosition;
   }
-  static GetYposition(yPosition) {
+  getYposition(yPosition) {
     return yPosition;
   }
-  static SetFuelEconomy(fuelEconomy) {
+  setFuelEconomy(fuelEconomy) {
     return fuelEconomy;
   }
 
-  static ShowTheSpec(name, number, width, height, length, capacity, energy, fuelEconomy) {
+  showTheSpec(name, number, width, height, length, capacity, energy, fuelEconomy) {
     console.log("名前："+name);
     console.log("ナンバー："+number);
     console.log("車幅："+width+"mm");
@@ -32,7 +32,7 @@ class Car{
     console.log("燃費："+fuelEconomy+"km/リットル");
   }
 
-  static Distance(xPosition, yPosition, capacity, fuelEconomy) {
+  Distance(xPosition, yPosition, capacity, fuelEconomy) {
     var distance = capacity/fuelEconomy;
     if(distance>energy){
       return false;
@@ -43,7 +43,7 @@ class Car{
     }
   }
 
-  static Refuel(df){
+  Refuel(df){
     if(df>0){
       energy += df;
       if(energy>capacity){
@@ -51,5 +51,4 @@ class Car{
       }
     }
   }
-
 }
