@@ -1,13 +1,10 @@
 const rl=require("readline").createInterface(process.stdin,process.stdout);
 
 class Human {
-  static counter = 0;
   constructor(name, height, width) {
     this.name = name;
     this.height = height;
-    this.width = width
-    // this.id = ++counter;
-    id = ++counter;
+    this.width = width;
   }
 
   getName() {
@@ -19,57 +16,145 @@ class Human {
   getWidth() {
     return this.width;
   }
-
-  PutElementIntoArray(name, height, width){
-    var Array = [name, height, width];
-    return Array;
-  }
-
-  static PutElementIntoMultipleArray(FirstHuman, SecondHuman, ThirdHuman, FourthHuman, FifthHuman, SixthHuman,){
-    var ArratLine =[];
-    var ArrayColumn = [];
-    for(var n=0; n<3; n++){
-      for(var i=0; i<2; i++){
-        ArrayLine.push
-      }
-    }
-  }
 }
 
-class HumanArryTester extends Human{
-  static counter = 0;
-  Person = [];
-  constructor(){
+class HumanArrayTester extends Human{
+  constructor(name, height, width, array, qArray) {
     super(name, height, width)
-    // this.id = ++counter;
-    id = ++counter;
+    this.array = [new Human("桑野慎一郎", 170, 70), new Human("高原徹也", 160, 59)];
+    qArray = [];
+    this.multipleArray = 
+    [[new Human("竹田祥平", 175, 52), new Human("横川智之", 169, 60)],
+     [new Human("三宅秀樹", 178, 70), new Human("小林佑介", 172, 61)],
+     [new Human("白水祐亮", 168, 59), new Human("田中大喜", 165, 59)]
+    ];
   }
 
-  Person =[new Human("高原徹也", 160, 60), new Human("高原徹也", 160, 59)];
-
-  MakeArray(){
+  putElementIntoArray(){
     (async function(){
-      process.stdout.write('配列qの要素数:');
-      var q = await new Promise(res=>rl.once("line",res));
-      for(var n=0; n<q; n++){
+      var arrayElement = [];
+      var qArray = [];
+      process.stdout.write(`配列qの要素数：`);
+      var element = await new Promise(res=>rl.once("line",res));
+      for(var n=0; n<element; n++){
+        console.log(`q[${n}]`);
         process.stdout.write('名前:');
         var name = await new Promise(res=>rl.once("line",res));
         process.stdout.write('身長:');
         var height = await new Promise(res=>rl.once("line",res));
         process.stdout.write('体重:');
         var weight = await new Promise(res=>rl.once("line",res));
-        Person[n] =[name, height, weight]; 
+        arrayElement = [name, height, weight];
+        qArray.push(arrayElement);
       }
       process.exit();
     })();
   }
 
-  PrintHumanArray(Person){
-    for(var n=1; n<=this.Person.length; n++){
-      console.log(this.Person[n-1]);
-    }
+  showPutElementIntoArray(){
+    // Test.putElementIntoArray();
+    (async function(){
+      var arrayElement = [];
+      var qArray = [];
+      process.stdout.write(`配列qの要素数：`);
+      var element = await new Promise(res=>rl.once("line",res));
+      for(var n=0; n<element; n++){
+        console.log(`q[${n}]`);
+        process.stdout.write('名前:');
+        var name = await new Promise(res=>rl.once("line",res));
+        process.stdout.write('身長:');
+        var height = await new Promise(res=>rl.once("line",res));
+        process.stdout.write('体重:');
+        var weight = await new Promise(res=>rl.once("line",res));
+        arrayElement = [name, height, weight];
+        qArray.push(arrayElement);
+      }
+      console.log(`■配列p`);
+      console.log(`No[0] ${constructor.this.array[0].getName()} ${constructor.this.array[0].getHeight()}cm ${constructor.this.array[0].getWidth()}kg`);
+      process.stdout.write(`■配列`);
+      var arrayTheme = await new Promise(res=>rl.once("line",res));
+      for(var n=0; n<qArray.length; n++){
+        console.log(`No[${n+1}] ${qArray[n][0]} ${qArray[n][1]}cm ${qArray[n][2]}kg`);
+      }
+      process.exit();
+    })();
+  }
+
+  putElementIntoMultipleArray(){
+    var Person = [];
+    var PersonLine = [];
+    (async function(){
+      process.stdout.write(`配列yの行数：`);
+      var yLine = await new Promise(res=>rl.once("line",res));
+      for(var n=0; n<yLine; n++){
+        process.stdout.write(`y[${n}]の列数`);
+        var yRow = await new Promise(res=>rl.once("line",res));
+        for(var i=0; i<yRow; i++){
+          console.log(`y[${n}][${i}]`);
+          process.stdout.write('名前:');
+          var name = await new Promise(res=>rl.once("line",res));
+          process.stdout.write('身長:');
+          var height = await new Promise(res=>rl.once("line",res));
+          process.stdout.write('体重:');
+          var weight = await new Promise(res=>rl.once("line",res));
+          Person[n] =[name, height, weight];
+          PersonLine.push(Person[n]);
+        }
+        multipleArray.push(PersonLine);
+        PersonLine = [];
+      }
+      // return multipleArray;
+      process.exit();
+    })();
+  }
+
+  showPutElementIntoMultipleArray(){
+    var Person = [];
+    var PersonLine = [];
+    (async function(){
+      process.stdout.write(`配列yの行数：`);
+      var yLine = await new Promise(res=>rl.once("line",res));
+      for(var n=0; n<yLine; n++){
+        process.stdout.write(`y[${n}]の列数`);
+        var yRow = await new Promise(res=>rl.once("line",res));
+        for(var i=0; i<yRow; i++){
+          console.log(`y[${n}][${i}]`);
+          process.stdout.write('名前:');
+          var name = await new Promise(res=>rl.once("line",res));
+          process.stdout.write('身長:');
+          var height = await new Promise(res=>rl.once("line",res));
+          process.stdout.write('体重:');
+          var weight = await new Promise(res=>rl.once("line",res));
+          Person[n] =[name, height, weight];
+          PersonLine.push(Person[n]);
+        }
+        multipleArray.push(PersonLine);
+        PersonLine = [];
+      }
+      console.log(`■配列p`);
+      console.log(`第0行`);
+      console.log(`No[0] ${this.multipleArray[0][0].getName()} ${this.multipleArray[0][0].getHeight()}cm ${this.multipleArray[0][0].getWidth()}kg`);
+      console.log(`No[1] ${this.multipleArray[0][1].getName()} ${this.multipleArray[0][1].getHeight()}cm ${this.multipleArray[0][1].getWidth()}kg`);
+      console.log(`第1行`);
+      console.log(`No[0] ${this.multipleArray[1][0].getName()} ${this.multipleArray[1][0].getHeight()}cm ${this.multipleArray[1][0].getWidth()}kg`);
+      console.log(`No[1] ${this.multipleArray[1][1].getName()} ${this.multipleArray[1][1].getHeight()}cm ${this.multipleArray[1][1].getWidth()}kg`);
+      console.log(`第2行`);
+      console.log(`No[0] ${this.multipleArray[2][0].getName()} ${this.multipleArray[2][0].getHeight()}cm ${this.multipleArray[2][0].getWidth()}kg`);
+      console.log(`No[1] ${this.multipleArray[2][1].getName()} ${this.multipleArray[2][1].getHeight()}cm ${this.multipleArray[2][1].getWidth()}kg`);
+      process.stdout.write(`■配列`);
+      var arrayTheme = await new Promise(res=>rl.once("line",res));
+        for(var n=0; n<yLine; n++){
+          console.log(`第${n}行`)
+          for(var i=0; i<yRow; i++){
+            console.log(`No${i+1} ${multipleArray[n][i][0]} ${multipleArray[n][i][1]}cm ${multipleArray[n][i][2]}kg`);
+          }
+        }
+      process.exit();
+    })();
   }
 }
 
-// 配列を初期化するパターンを使用して作成してみよう
-// $を使用するやり方を知る必要があるな。
+var Test = new HumanArrayTester();
+
+Test.showPutElementIntoArray();
+Test.showPutElementIntoMultipleArray();

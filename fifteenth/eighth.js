@@ -1,5 +1,3 @@
-// compareToが使えないため、文字列をただ比較する。
-
 const rl=require("readline").createInterface(process.stdin,process.stdout);
 
 class CompareStrings{
